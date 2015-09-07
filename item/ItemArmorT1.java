@@ -14,6 +14,7 @@ public class ItemArmorT1 extends ItemMWMArmor{
 	public ItemArmorT1(String unlocalizedName, ArmorMaterial material, String textureName, int type)
 	{
 		super(unlocalizedName, material, textureName, type);
+		//This checks for the specific armor piece and gives it the corresponding unlocalized name
 		if (this.armorType == 0)
 		{
 			this.setUnlocalizedName("WitherHelmetT1");

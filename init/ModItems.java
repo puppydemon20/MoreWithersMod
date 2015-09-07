@@ -2,6 +2,7 @@ package com.puppydemon.MoreWithersMod.init;
 
 import com.puppydemon.MoreWithersMod.item.ItemArmorT1;
 import com.puppydemon.MoreWithersMod.item.ItemArmorT2;
+import com.puppydemon.MoreWithersMod.item.ItemArmorT3;
 import com.puppydemon.MoreWithersMod.item.ItemMWMSword;
 import com.puppydemon.MoreWithersMod.item.ItemSwordT1;
 import com.puppydemon.MoreWithersMod.item.ItemSwordT2;
@@ -33,6 +34,11 @@ public class ModItems
 	public static final ItemArmorT2 ItemChestplateT2 = new ItemArmorT2("WitherChestplateT2", WITHERARMOR,"WitherChestplateT2", 1);
 	public static final ItemArmorT2 ItemLeggingsT2 = new ItemArmorT2("WitherLeggingsT2", WITHERARMOR,"WitherLeggingsT2", 2);
 	public static final ItemArmorT2 ItemBootsT2 = new ItemArmorT2("WitherBootsT2", WITHERARMOR,"WitherBootsT2", 3);
+	//Tier Three Armor
+	public static final ItemArmorT3 ItemHelmetT3 = new ItemArmorT3("WitherHelmetT3", WITHERARMOR,"WitherHelmetT3", 0);
+	public static final ItemArmorT3 ItemChestplateT3 = new ItemArmorT3("WitherChestplateT3", WITHERARMOR,"WitherChestplateT3", 1);
+	public static final ItemArmorT3 ItemLeggingsT3 = new ItemArmorT3("WitherLeggingsT3", WITHERARMOR,"WitherLeggingsT3", 2);
+	public static final ItemArmorT3 ItemBootsT3 = new ItemArmorT3("WitherBootsT3", WITHERARMOR,"WitherBootsT3", 3);
 	
 	public static void init ()
 	{
@@ -46,6 +52,11 @@ public class ModItems
 		GameRegistry.registerItem(ItemChestplateT2, "WitherChestplateT2");
 		GameRegistry.registerItem(ItemLeggingsT2, "WitherLeggingsT2");
 		GameRegistry.registerItem(ItemBootsT2, "WitherBootsT2");
+		//Tier Three Armor
+		GameRegistry.registerItem(ItemHelmetT3, "WitherHelmetT3");
+		GameRegistry.registerItem(ItemChestplateT3, "WitherChestplateT3");
+		GameRegistry.registerItem(ItemLeggingsT3, "WitherLeggingsT3");
+		GameRegistry.registerItem(ItemBootsT3, "WitherBootsT3");
 		//Three Tiers of Swords
 		GameRegistry.registerItem(ItemSwordT1, "WitherSwordT1");
 		GameRegistry.registerItem(ItemSwordT2, "WitherSwordT2");
