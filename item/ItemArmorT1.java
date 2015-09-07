@@ -10,8 +10,6 @@ import net.minecraft.item.ItemStack;
 
 
 public class ItemArmorT1 extends ItemMWMArmor{
-
-
 	
 	public ItemArmorT1(String unlocalizedName, ArmorMaterial material, String textureName, int type)
 	{

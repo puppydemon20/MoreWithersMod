@@ -19,25 +19,32 @@ public class ItemMWMArmor extends ItemArmor
 		super(material, 0, type);
 	}
 	
-	@Override
-	   public String getUnlocalizedName()
-	   {
-	       return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
-	   }
+		@Override
+		public String getUnlocalizedName()
+		{
+			return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+		}
 	  
-	   @Override
-	   public String getUnlocalizedName(ItemStack itemStack)
-	   {
-	       return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
-	   }	   
-	   protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-	   {
-		   return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
-	   }
+		@Override
+		public String getUnlocalizedName(ItemStack itemStack)
+		{
+			return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+		}	   
+		protected String getUnwrappedUnlocalizedName(String unlocalizedName)
+		{
+			return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+		}
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 		{
 			return Reference.MOD_ID.toLowerCase() + ":textures/models/armor/" + this.textureName + "_" + "model" + ".png";
+		}
+		
+		@Override
+		@SideOnly(Side.CLIENT)
+		public void registerIcons(IIconRegister iconRegister)
+		{
+			itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 		}
 
 	}
