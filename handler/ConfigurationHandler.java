@@ -1,13 +1,10 @@
 package com.puppydemon.MoreWithersMod.handler;
 
 import java.io.File;
-
 import com.puppydemon.MoreWithersMod.reference.Reference;
-
+import cpw.mods.fml.client.event.ConfigChangedEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ConfigurationHandler
 {

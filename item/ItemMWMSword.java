@@ -5,19 +5,17 @@ import com.puppydemon.MoreWithersMod.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.Item.ToolMaterial;
 
-public class ItemMWM extends Item
+public class ItemMWMSword extends ItemSword
 {
-	public ItemMWM()
+	public ItemMWMSword(ToolMaterial material)
 	{
-		super();
+		super(material);
 	}
 	
-	  public ItemMWM(ToolMaterial material) {
-
-	}
 
 	@Override
 	   public String getUnlocalizedName()

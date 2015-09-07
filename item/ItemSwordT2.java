@@ -2,13 +2,15 @@ package com.puppydemon.MoreWithersMod.item;
 
 import com.puppydemon.MoreWithersMod.creativetab.CreativeTabMWM;
 
-public class ItemSwordT1 extends ItemMWMSword
+import net.minecraft.item.Item.ToolMaterial;
+
+public class ItemSwordT2 extends ItemMWMSword
 {
-	public ItemSwordT1(ToolMaterial material)
+	public ItemSwordT2(ToolMaterial material)
 	{
 		super(material);
 		this.setCreativeTab(CreativeTabMWM.MWM_TAB);
-		this.setUnlocalizedName("WitherSwordT1");
+		this.setUnlocalizedName("WitherSwordT2");
 		
 	}
 }

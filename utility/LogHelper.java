@@ -2,7 +2,7 @@ package com.puppydemon.MoreWithersMod.utility;
 
 import org.apache.logging.log4j.Level;
 import com.puppydemon.MoreWithersMod.reference.Reference;
-import net.minecraftforge.fml.common.FMLLog;
+import cpw.mods.fml.common.FMLLog;
 
 public class LogHelper
 {
