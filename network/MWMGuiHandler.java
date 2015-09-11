@@ -6,6 +6,8 @@ import com.puppydemon.MoreWithersMod.tileentity.TileEntityMWM;
 import com.puppydemon.MoreWithersMod.utility.LogHelper;
 
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -16,41 +18,17 @@ public class MWMGuiHandler implements IGuiHandler
     
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        try {
     	TileEntity tileEntity = world.getTileEntity(x,y,z);
     	if (ID == MOD_TILE_ENTITY_GUI)
+    		LogHelper.info("ServerGuiElement Ran");
             return new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity);
-
-    	
-        } catch (Exception e)
-        {
-        	LogHelper.fatal(e);
-        }
-        finally
-        {
-        	
-        	LogHelper.info("Problem with server gui");
-        }
-        return null;
     }
-
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
     {
-        try{
     	TileEntity tileEntity = world.getTileEntity(x,y,z);
     	if (ID == MOD_TILE_ENTITY_GUI)
+    		LogHelper.info("ClientGuiElement Ran");
         	return new GuiTileEntityMWM(new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity));
-    	
-    } catch (Exception e)
-    {
-    	LogHelper.fatal(e);
-    }
-    finally
-    {
-    	
-    	LogHelper.info("Problem with client gui");
-    }
-    return null;
     }
 }

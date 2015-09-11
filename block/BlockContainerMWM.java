@@ -87,20 +87,22 @@ public class BlockContainerMWM extends BlockContainer
             if (tileEntity == null || player.isSneaking()) {
                     return false;
             }
-            try
+            else if (!world.isRemote)
+           // try
             {
             LogHelper.info("Player Initialized Gui");
             player.openGui(MoreWithersMod.instance, MWMGuiHandler.MOD_TILE_ENTITY_GUI, world, x, y, z);
-            }
-            catch (Exception e)
-            {
-            LogHelper.fatal("Gui unable to initialize. Reason: " + e);
-            }
-            finally
-            {
+           // }
+            //catch (Exception e)
+            //{
+           // LogHelper.fatal("Gui unable to initialize. Reason: " + e);
+          //  }
+          //  finally
+          //  {
             LogHelper.info("Player.opengui test complete");	
-            }
             return true;
+            }
+            return false;
     }
 	@Override
     public String getUnlocalizedName()

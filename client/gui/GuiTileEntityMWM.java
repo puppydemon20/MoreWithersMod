@@ -38,7 +38,7 @@ public class GuiTileEntityMWM extends GuiContainer
 	}
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-	    String s = this.te.getDisplayName().getUnformattedText();
+	    String s = this.GuiName;
 	    this.fontRendererObj.drawString(s, 88 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);            //#404040
 	    this.fontRendererObj.drawString(this.GuiName, 8, 72, 4210752);      //#404040
 	}
