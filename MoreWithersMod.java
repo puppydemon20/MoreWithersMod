@@ -1,7 +1,9 @@
 package com.puppydemon.MoreWithersMod;
 
 import com.puppydemon.MoreWithersMod.handler.ConfigurationHandler;
+import com.puppydemon.MoreWithersMod.init.ModBlocks;
 import com.puppydemon.MoreWithersMod.init.ModItems;
+import com.puppydemon.MoreWithersMod.init.ModTileEntities;
 import com.puppydemon.MoreWithersMod.proxy.IProxy;
 import com.puppydemon.MoreWithersMod.reference.Reference;
 import com.puppydemon.MoreWithersMod.utility.LogHelper;
@@ -27,9 +29,11 @@ public class MoreWithersMod
 	{
 			ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 			FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-			LogHelper.info("Pre Initialization Complete!");
 			
 			ModItems.init();
+			ModBlocks.init();
+			ModTileEntities.init();
+			LogHelper.info("Pre Initialization Complete!");
 	}
 
 	@Mod.EventHandler
@@ -37,7 +41,6 @@ public class MoreWithersMod
 	{
 			
 	}
-	
 	@Mod.EventHandler
 	public void postinit(FMLPostInitializationEvent event)
 	{
