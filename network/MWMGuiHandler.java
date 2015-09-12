@@ -9,26 +9,34 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class MWMGuiHandler implements IGuiHandler
 {
-    public static final int MOD_TILE_ENTITY_GUI = 0;
+    public static final int MWM_AUGMENTER_GUI = 0;
     
     @Override
-    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+    {
     	TileEntity tileEntity = world.getTileEntity(x,y,z);
-    	if (ID == MOD_TILE_ENTITY_GUI)
-    		LogHelper.info("ServerGuiElement Ran");
+    	if (tileEntity instanceof TileEntityMWM) {
+    		LogHelper.info("ServerGuiElement ran succesfully");
             return new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity);
+    	}
+            LogHelper.info("ServerGuiElement ran and returned null");
+    	return null;
     }
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
     {
     	TileEntity tileEntity = world.getTileEntity(x,y,z);
-    	if (ID == MOD_TILE_ENTITY_GUI)
-    		LogHelper.info("ClientGuiElement Ran");
-        	return new GuiTileEntityMWM(new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity));
+    	if (tileEntity instanceof TileEntityMWM) {
+    		LogHelper.info("ClientGuiElement ran succesfully");
+    		return new GuiTileEntityMWM(new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity), null, null);
+    	}
+    	LogHelper.info("ClientGuiElement ran and returned null");	
+    	return null;
     }
 }

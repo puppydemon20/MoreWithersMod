@@ -10,24 +10,40 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.IIcon;
+import net.minecraftforge.common.util.ForgeDirection;
 
 
 public class TileEntityMWM extends TileEntity implements IInventory
 {
     private ItemStack[] inventory;
     private String customName;
-    public String GuiName = customName;
+    protected ForgeDirection orientation;
+
 	
 	public TileEntityMWM()
 	{
         this.inventory = new ItemStack[this.getSizeInventory()];
+        orientation = ForgeDirection.SOUTH;
+
+    }
+    public ForgeDirection getOrientation()
+    {
+        return orientation;
     }
 
+    public void setOrientation(ForgeDirection orientation)
+    {
+        this.orientation = orientation;
+    }
+
+    public void setOrientation(int orientation)
+    {
+        this.orientation = ForgeDirection.getOrientation(orientation);
+    }
     public String getCustomName()
     {
         return this.customName;
     }
-
     public void setCustomName(String customName)
     {
         this.customName = customName;
@@ -129,59 +145,58 @@ public class TileEntityMWM extends TileEntity implements IInventory
     {
         return true;
     }
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
-	{
-		return true;
-	}
-
-	@Override
-	public void openChest() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void closeChest() {
-		// TODO Auto-generated method stub
-		
-	}
-
     @Override
-    public void writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
-
-        NBTTagList list = new NBTTagList();
-        for (int i = 0; i < this.getSizeInventory(); ++i) {
-            if (this.getStackInSlot(i) != null) {
-                NBTTagCompound stackTag = new NBTTagCompound();
-                stackTag.setByte("Slot", (byte) i);
-                this.getStackInSlot(i).writeToNBT(stackTag);
-                list.appendTag(stackTag);
-            }
-        }
-        nbt.setTag("Items", list);
-
-        if (this.isCustomInventoryName()) {
-            nbt.setString("CustomName", this.getCustomName());
-        }
-    }
-    @Override
-    public void readFromNBT(NBTTagCompound nbt)
+    public boolean isUseableByPlayer(EntityPlayer player)
     {
-        super.readFromNBT(nbt);
-
-        NBTTagList list = nbt.getTagList("Items", 10);
-        for (int i = 0; i < list.tagCount(); ++i)
-        {
-            NBTTagCompound stackTag = list.getCompoundTagAt(i);
-            int slot = stackTag.getByte("Slot") & 255;
-            this.setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(stackTag));
-        }
-
-        if (nbt.hasKey("CustomName", 8))
-        {
-            this.setCustomName(nbt.getString("CustomName"));
-        }
+            return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
     }
+
+	@Override
+	public void openChest() {}
+
+	@Override
+	public void closeChest() {}
+
+	@Override
+	public void writeToNBT(NBTTagCompound nbt) {
+	    super.writeToNBT(nbt);
+	    
+        nbt.setByte("teDirection", (byte) orientation.ordinal());
+
+	    NBTTagList list = new NBTTagList();
+	    for (int i = 0; i < this.getSizeInventory(); ++i) {
+	        if (this.getStackInSlot(i) != null) {
+	            NBTTagCompound stackTag = new NBTTagCompound();
+	            stackTag.setByte("Slot", (byte) i);
+	            this.getStackInSlot(i).writeToNBT(stackTag);
+	            list.appendTag(stackTag);
+	        }
+	    }
+	    nbt.setTag("Items", list);
+
+	    if (this.isCustomInventoryName()) {
+	        nbt.setString("CustomName", this.getCustomName());
+	    }
+	}
+
+
+	@Override
+	public void readFromNBT(NBTTagCompound nbt) {
+	    super.readFromNBT(nbt);
+
+	    NBTTagList list = nbt.getTagList("Items", 10);
+	    for (int i = 0; i < list.tagCount(); ++i) {
+	        NBTTagCompound stackTag = list.getCompoundTagAt(i);
+	        int slot = stackTag.getByte("Slot") & 255;
+	        this.setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(stackTag));
+	    }
+
+	    if (nbt.hasKey("CustomName", 8)) {
+	        this.setCustomName(nbt.getString("CustomName"));
+	    }
+        if (nbt.hasKey("teDirection"))
+        {
+            this.orientation = ForgeDirection.getOrientation(nbt.getByte("teDirection"));
+        }
+	}
 }
