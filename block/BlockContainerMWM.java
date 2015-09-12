@@ -57,10 +57,12 @@ public class BlockContainerMWM extends BlockContainer
     }
     protected void dropInventory(World world, int x, int y, int z)
     {
+    	LogHelper.info("dropInventory was called");
         TileEntity tileEntity = world.getTileEntity(x, y, z);
 
         if (!(tileEntity instanceof IInventory))
         {
+        	LogHelper.info("dropInventory was canceled");
             return;
         }
 

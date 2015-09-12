@@ -17,7 +17,7 @@ public class GuiTileEntityMWM extends GuiContainer
 	
 	public GuiTileEntityMWM(ContainerTileEntityMWM containerTileEntityMWM, IInventory playerInv, TileEntityMWM te)
 	{
-	    super(new ContainerTileEntityMWM(playerInv, te));
+	    super(containerTileEntityMWM);
 	    
 	    this.playerInv = playerInv;
 	    this.te = te;

@@ -16,6 +16,8 @@ import net.minecraft.world.World;
 public class MWMGuiHandler implements IGuiHandler
 {
     public static final int MWM_AUGMENTER_GUI = 0;
+	private IInventory playerInv;
+	private TileEntityMWM te;
     
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
@@ -25,6 +27,7 @@ public class MWMGuiHandler implements IGuiHandler
     		LogHelper.info("ServerGuiElement ran succesfully");
             return new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity);
     	}
+		LogHelper.info("ServerGuiElement returned null");
     	return null;
     }
     @Override
@@ -33,8 +36,9 @@ public class MWMGuiHandler implements IGuiHandler
     	TileEntity tileEntity = world.getTileEntity(x,y,z);
     	if (tileEntity instanceof TileEntityMWM) {
     		LogHelper.info("ClientGuiElement ran succesfully");
-    		return new GuiTileEntityMWM(new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity), null, null);
-    	}	
+    		return new GuiTileEntityMWM(new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity), playerInv, te);
+    	}
+		LogHelper.info("ClientGuiElement returned null");
     	return null;
     }
 }
