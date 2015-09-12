@@ -1,6 +1,7 @@
 package com.puppydemon.MoreWithersMod.guicontainer;
 
 import com.puppydemon.MoreWithersMod.tileentity.TileEntityMWM;
+import com.puppydemon.MoreWithersMod.utility.LogHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -14,7 +15,7 @@ public class ContainerTileEntityMWM extends Container
 
     public ContainerTileEntityMWM(IInventory playerInv, TileEntityMWM te)
     {
-        this.te = te;
+    	this.te = te;
         
         // Tile Entity, Slot 0-8, Slot IDs 0-8
         for (int y = 0; y < 3; ++y)

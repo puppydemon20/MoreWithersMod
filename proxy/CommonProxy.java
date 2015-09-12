@@ -11,6 +11,6 @@ public abstract class CommonProxy implements IProxy
 {
 	public void init(FMLInitializationEvent e)
 	{
-	    NetworkRegistry.INSTANCE.registerGuiHandler(MoreWithersMod.instance, new MWMGuiHandler());
+
 	}
 }

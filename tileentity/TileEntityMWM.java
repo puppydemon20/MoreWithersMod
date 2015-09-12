@@ -141,11 +141,6 @@ public class TileEntityMWM extends TileEntity implements IInventory
         return 64;
     }
     @Override
-    public boolean isItemValidForSlot(int index, ItemStack stack)
-    {
-        return true;
-    }
-    @Override
     public boolean isUseableByPlayer(EntityPlayer player)
     {
             return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
@@ -156,6 +151,12 @@ public class TileEntityMWM extends TileEntity implements IInventory
 
 	@Override
 	public void closeChest() {}
+	
+    @Override
+    public boolean isItemValidForSlot(int index, ItemStack stack)
+    {
+        return true;
+    }
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
@@ -198,5 +199,9 @@ public class TileEntityMWM extends TileEntity implements IInventory
         {
             this.orientation = ForgeDirection.getOrientation(nbt.getByte("teDirection"));
         }
+	}
+	public void clear() {
+	    for (int i = 0; i < this.getSizeInventory(); i++)
+	        this.setInventorySlotContents(i, null);
 	}
 }

@@ -25,7 +25,6 @@ public class MWMGuiHandler implements IGuiHandler
     		LogHelper.info("ServerGuiElement ran succesfully");
             return new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity);
     	}
-            LogHelper.info("ServerGuiElement ran and returned null");
     	return null;
     }
     @Override
@@ -35,8 +34,7 @@ public class MWMGuiHandler implements IGuiHandler
     	if (tileEntity instanceof TileEntityMWM) {
     		LogHelper.info("ClientGuiElement ran succesfully");
     		return new GuiTileEntityMWM(new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity), null, null);
-    	}
-    	LogHelper.info("ClientGuiElement ran and returned null");	
+    	}	
     	return null;
     }
 }
