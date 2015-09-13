@@ -14,7 +14,7 @@ public class ModBlocks
 	//public static final BlockMWM Augmenter = new BlockAugmenter();
 	public static final BlockMWM NetherstarBlock = new BlockNetherstarBlock();
 	public static final BlockContainerMWM Augmenter = new BlockContainerMWM();
-	public static final BlockMWM WitherOre = new BlockWitherOre(BlockWitherOre.unlocalizedName, Material.rock, ModItems.WitherShard, 2, 4);
+	public static final BlockMWM WitherOre = new BlockWitherOre("WitherOre", Material.rock, ModItems.WitherShard, 2, 4);
 	
 	public static void init()
 	{

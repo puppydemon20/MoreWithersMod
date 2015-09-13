@@ -10,7 +10,6 @@ import net.minecraft.util.IIcon;
 
 public class BlockWitherOre extends BlockMWM
 {
-	public final String unlocalizedName = this.getUnlocalizedName();
 	private Item drop;
 	private int meta;
 	private int least_quantity;
@@ -25,13 +24,14 @@ public class BlockWitherOre extends BlockMWM
 	    this.most_quantity = most_quantity;
 		this.setUnlocalizedName("WitherOre");
 		this.setTextureName(Reference.MOD_ID + ":" + "WitherOre");
-		this.setHardness(2.0f);
-        this.setResistance(6.0f);
-        this.setHarvestLevel("pickaxe", 2);
+		this.setHardness(3.0f);
+        this.setResistance(12.0f);
+        this.setHarvestLevel("pickaxe", 3);
+        this.setLightLevel(0.6f);
         unlocalizedName = this.getUnlocalizedName();
 		MultiTexture = false;
 	}
-	protected BlockWitherOre(String unlocalizedName, Material mat, Item drop, int least_quantity, int most_quantity) {
+	public BlockWitherOre(String unlocalizedName, Material mat, Item drop, int least_quantity, int most_quantity) {
 	    this(unlocalizedName, mat, drop, 0, least_quantity, most_quantity);
 	}
 

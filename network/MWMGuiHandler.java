@@ -24,10 +24,8 @@ public class MWMGuiHandler implements IGuiHandler
     {
     	TileEntity tileEntity = world.getTileEntity(x,y,z);
     	if (tileEntity instanceof TileEntityMWM) {
-    		LogHelper.info("ServerGuiElement ran succesfully");
             return new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity);
     	}
-		LogHelper.info("ServerGuiElement returned null");
     	return null;
     }
     @Override
@@ -35,10 +33,8 @@ public class MWMGuiHandler implements IGuiHandler
     {
     	TileEntity tileEntity = world.getTileEntity(x,y,z);
     	if (tileEntity instanceof TileEntityMWM) {
-    		LogHelper.info("ClientGuiElement ran succesfully");
     		return new GuiTileEntityMWM(new ContainerTileEntityMWM(player.inventory, (TileEntityMWM) tileEntity), playerInv, te);
     	}
-		LogHelper.info("ClientGuiElement returned null");
     	return null;
     }
 }

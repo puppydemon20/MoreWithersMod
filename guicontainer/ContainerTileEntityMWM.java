@@ -16,7 +16,6 @@ public class ContainerTileEntityMWM extends Container
     public ContainerTileEntityMWM(IInventory playerInv, TileEntityMWM te)
     {
     	this.te = te;
-    	LogHelper.info("Container Line 19");
         
         // Tile Entity, Slot 0-8, Slot IDs 0-8
         for (int y = 0; y < 3; ++y)
@@ -26,7 +25,6 @@ public class ContainerTileEntityMWM extends Container
                 this.addSlotToContainer(new Slot(te, x + y * 3, 62 + x * 18, 17 + y * 18));
             }
         }
-    	LogHelper.info("Container Line 29");
 
         // Player Inventory, Slot 9-35, Slot IDs 9-35
         for (int y = 0; y < 3; ++y)
@@ -42,7 +40,6 @@ public class ContainerTileEntityMWM extends Container
         {
             this.addSlotToContainer(new Slot(playerInv, x, 8 + x * 18, 142));
         }
-    	LogHelper.info("Container Line 45");
 
         /*
          * SLOTS:
@@ -56,7 +53,6 @@ public class ContainerTileEntityMWM extends Container
     @Override
     public boolean canInteractWith(EntityPlayer playerIn)
     {
-    	LogHelper.info("Container Line 59");
         return this.te.isUseableByPlayer(playerIn);
     }
     
@@ -70,13 +66,11 @@ public class ContainerTileEntityMWM extends Container
         {
             ItemStack current = slot.getStack();
             previous = current.copy();
-        	LogHelper.info("Container Line 73");
 
             if (fromSlot < 9)
             {
                 // From TE Inventory to Player Inventory
                 if (!this.mergeItemStack(current, 9, 45, true))
-                	LogHelper.info("Container Line 79 Returned Null");
                 return null;
             }
             else
@@ -84,26 +78,20 @@ public class ContainerTileEntityMWM extends Container
                 // From Player Inventory to TE Inventory
                 if (!this.mergeItemStack(current, 0, 9, false))
                 {
-                	LogHelper.info("Container Line 87 Returned Null");
                 	return null; 
                 }
             }
 
             if (current.stackSize == 0){
-            	LogHelper.info("Container Line 93");
             	slot.putStack((ItemStack) null); }
             else {
-            	LogHelper.info("Container Line 96");
             	slot.onSlotChanged(); }
 
             if (current.stackSize == previous.stackSize) {
-            	LogHelper.info("Container Line 100 Returned Null");
             	return null; }
             slot.onPickupFromSlot(playerIn, current);
-        	LogHelper.info("Container Line 103");
 
         }
-    	LogHelper.info("Container Line 106");
         return previous;
     }
 }

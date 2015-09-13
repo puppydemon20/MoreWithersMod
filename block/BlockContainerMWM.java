@@ -173,7 +173,6 @@ public class BlockContainerMWM extends BlockContainer
             }
             else if (!world.isRemote && tileEntity instanceof TileEntityMWM)
             {
-            LogHelper.info("Player Initialized Gui for Augmenter");
             player.openGui(MoreWithersMod.instance, MWMGuiHandler.MWM_AUGMENTER_GUI, world, x, y, z);
             }
             return true;
