@@ -27,7 +27,6 @@ public class ItemArmorT2 extends ItemMWMArmor{
 		}
 		this.textureName = textureName;
 		this.setTextureName(textureName);
-		this.setCreativeTab(CreativeTabMWM.MWM_TAB);
 	}
 
 }

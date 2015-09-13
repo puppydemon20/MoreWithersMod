@@ -33,7 +33,6 @@ public class ItemArmorT1 extends ItemMWMArmor{
 		}
 		this.textureName = textureName;
 		this.setTextureName(textureName);
-		this.setCreativeTab(CreativeTabMWM.MWM_TAB);
 	}
 }
 

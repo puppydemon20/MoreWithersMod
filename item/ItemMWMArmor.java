@@ -1,5 +1,6 @@
 package com.puppydemon.MoreWithersMod.item;
 
+import com.puppydemon.MoreWithersMod.creativetab.CreativeTabMWM;
 import com.puppydemon.MoreWithersMod.reference.Reference;
 
 import cpw.mods.fml.relauncher.Side;
@@ -17,6 +18,7 @@ public class ItemMWMArmor extends ItemArmor
 	public ItemMWMArmor(String unlocalizedName, ArmorMaterial material, String textureName, int type)
 	{
 		super(material, 0, type);
+		this.setCreativeTab(CreativeTabMWM.MWM_TAB);
 	}
 	
 		@Override

@@ -1,5 +1,6 @@
 package com.puppydemon.MoreWithersMod.item;
 
+import com.puppydemon.MoreWithersMod.creativetab.CreativeTabMWM;
 import com.puppydemon.MoreWithersMod.reference.Reference;
 
 import cpw.mods.fml.relauncher.Side;
@@ -14,6 +15,7 @@ public class ItemMWMSword extends ItemSword
 	public ItemMWMSword(ToolMaterial material)
 	{
 		super(material);
+		this.setCreativeTab(CreativeTabMWM.MWM_TAB);
 	}
 	
 

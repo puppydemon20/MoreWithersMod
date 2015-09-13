@@ -9,8 +9,6 @@ public class ItemSwordT3 extends ItemMWMSword
 	public ItemSwordT3(ToolMaterial material)
 	{
 		super(material);
-		this.setCreativeTab(CreativeTabMWM.MWM_TAB);
-		this.setUnlocalizedName("WitherSwordT3");
-		
+		this.setUnlocalizedName("WitherSwordT3");		
 	}
 }

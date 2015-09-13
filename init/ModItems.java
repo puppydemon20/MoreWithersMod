@@ -3,10 +3,12 @@ package com.puppydemon.MoreWithersMod.init;
 import com.puppydemon.MoreWithersMod.item.ItemArmorT1;
 import com.puppydemon.MoreWithersMod.item.ItemArmorT2;
 import com.puppydemon.MoreWithersMod.item.ItemArmorT3;
+import com.puppydemon.MoreWithersMod.item.ItemMWM;
 import com.puppydemon.MoreWithersMod.item.ItemMWMSword;
 import com.puppydemon.MoreWithersMod.item.ItemSwordT1;
 import com.puppydemon.MoreWithersMod.item.ItemSwordT2;
 import com.puppydemon.MoreWithersMod.item.ItemSwordT3;
+import com.puppydemon.MoreWithersMod.item.ItemWitherShard;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item.ToolMaterial;
@@ -20,6 +22,8 @@ public class ModItems
 	public static ToolMaterial WITHERT2 = EnumHelper.addToolMaterial("WITHERT2", -1, -1, 2.0F, 14.0F, 0);
 	public static ToolMaterial WITHERT3 = EnumHelper.addToolMaterial("WITHERT3", -1, -1, 2.0F, 21.0F, 0);
 	public static ArmorMaterial WITHERARMOR = EnumHelper.addArmorMaterial("WITHERARMOR", -1, new int[]{3,7,5,2}, 0);
+	//Items
+	public static final ItemMWM WitherShard = new ItemWitherShard();
 	//Three Tiers of Swords
 	public static final ItemMWMSword ItemSwordT1 = new ItemSwordT1(WITHERT1);
 	public static final ItemMWMSword ItemSwordT2 = new ItemSwordT2(WITHERT2);
@@ -42,6 +46,8 @@ public class ModItems
 	
 	public static void init ()
 	{
+		//Items
+		GameRegistry.registerItem(WitherShard, "WitherShard");
 		//Tier One Armor
 		GameRegistry.registerItem(ItemHelmetT1, "WitherHelmetT1");
 		GameRegistry.registerItem(ItemChestplateT1, "WitherChestplateT1");
