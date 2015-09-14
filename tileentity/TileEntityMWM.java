@@ -1,21 +1,19 @@
 package com.puppydemon.MoreWithersMod.tileentity;
 
-import com.puppydemon.MoreWithersMod.utility.LogHelper;
+import com.puppydemon.MoreWithersMod.guicontainer.ContainerTileEntityMWM;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 
 
-public class TileEntityMWM extends TileEntity implements IInventory
+public class TileEntityMWM extends TileEntity implements IInventory, IUpdatePlayerListBox
 {
     private ItemStack[] inventory;
     private String customName;
@@ -184,5 +182,9 @@ public class TileEntityMWM extends TileEntity implements IInventory
         {
             this.orientation = ForgeDirection.getOrientation(nbt.getByte("teDirection"));
         }
+	}
+	@Override
+	public void update()
+	{
 	}
 }
