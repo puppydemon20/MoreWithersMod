@@ -63,7 +63,7 @@ public class TileEntityMWM extends TileEntity implements IInventory
     }
 
     @Override
-    public int getSizeInventory() {return 9;}
+    public int getSizeInventory() {return 4;}
     
     @Override
     public ItemStack getStackInSlot(int index) {

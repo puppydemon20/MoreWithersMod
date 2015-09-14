@@ -15,6 +15,7 @@ public class BlockNetherstarBlock extends BlockMWM
 			this.setHardness(2.0f);
 	        this.setResistance(6.0f);
 	        this.setHarvestLevel("pickaxe", 2);
+	        this.setLightLevel(0.3f);
 			MultiTexture = false;
 		}
 		@Override

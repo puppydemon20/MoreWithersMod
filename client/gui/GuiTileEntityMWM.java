@@ -29,7 +29,7 @@ public class GuiTileEntityMWM extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
 	{
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-	    this.mc.getTextureManager().bindTexture(new ResourceLocation("morewithersmod:textures/gui/container/GuiTemplate.png"));
+	    this.mc.getTextureManager().bindTexture(new ResourceLocation("morewithersmod:textures/gui/container/GuiAugmenter.png"));
 	    this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 	}
 	@Override

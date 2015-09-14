@@ -17,16 +17,13 @@ public class ContainerTileEntityMWM extends Container
     {
     	this.te = te;
         
-        // Tile Entity, Slot 0-8, Slot IDs 0-8
-        for (int y = 0; y < 3; ++y)
+        // Tile Entity, Slot 0-3, Slot IDs 0-3
+        for (int x = 0; x < 4; ++x)
         {
-            for (int x = 0; x < 3; ++x)
-            {
-                this.addSlotToContainer(new Slot(te, x + y * 3, 62 + x * 18, 17 + y * 18));
-            }
+            this.addSlotToContainer(new Slot(te, x, 54 + x * 18, 17 + 1 * 18));
         }
 
-        // Player Inventory, Slot 9-35, Slot IDs 9-35
+        // Player Inventory, Slot 4-30, Slot IDs 4-30
         for (int y = 0; y < 3; ++y)
         {
             for (int x = 0; x < 9; ++x)
@@ -35,7 +32,7 @@ public class ContainerTileEntityMWM extends Container
             }
         }
 
-        // Player Inventory, Slot 0-8, Slot IDs 36-44
+        // Player Inventory, Slot 0-8, Slot IDs 31-39
         for (int x = 0; x < 9; ++x)
         {
             this.addSlotToContainer(new Slot(playerInv, x, 8 + x * 18, 142));
@@ -44,9 +41,9 @@ public class ContainerTileEntityMWM extends Container
         /*
          * SLOTS:
          * 
-         * Tile Entity 0-8 ........ 0  - 8
-         * Player Inventory 9-35 .. 9  - 35
-         * Player Inventory 0-8 ... 36 - 44
+         * Tile Entity 0-8 ........ 0  - 3
+         * Player Inventory 9-35 .. 3  - 30
+         * Player Inventory 0-8 ... 31 - 39
          */
     }
 
@@ -67,16 +64,16 @@ public class ContainerTileEntityMWM extends Container
             ItemStack current = slot.getStack();
             previous = current.copy();
 
-            if (fromSlot < 9)
+            if (fromSlot < 3)
             {
                 // From TE Inventory to Player Inventory
-                if (!this.mergeItemStack(current, 9, 45, true))
+                if (!this.mergeItemStack(current, 3, 39, true))
                 return null;
             }
             else
             {
                 // From Player Inventory to TE Inventory
-                if (!this.mergeItemStack(current, 0, 9, false))
+                if (!this.mergeItemStack(current, 0, 3, false))
                 {
                 	return null; 
                 }

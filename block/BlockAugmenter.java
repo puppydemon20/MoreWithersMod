@@ -11,7 +11,8 @@ public class BlockAugmenter extends BlockMWM
 		super();
 		this.setUnlocalizedName("Augmenter");
 		this.setTextureName(Reference.MOD_ID + ":" + "Augmenter");
-		MultiTexture = true;
+        this.setLightLevel(0.2f);
+        MultiTexture = true;
 	}
 	@Override
 	public IIcon getIcon(int side, int meta)

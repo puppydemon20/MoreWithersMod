@@ -11,5 +11,7 @@ public class Recipes
 	{
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.Augmenter), "gig", "ini", "gig", 'g', "ingotGold", 'i', "ingotIron", 'n', new ItemStack (Items.nether_star)));
 		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.NetherstarBlock), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star), new ItemStack (Items.nether_star));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.nether_star), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard), new ItemStack (ModItems.WitherShard));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.nether_star, 9), new ItemStack (ModBlocks.NetherstarBlock));
 	}
 }

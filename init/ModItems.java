@@ -1,5 +1,8 @@
 package com.puppydemon.MoreWithersMod.init;
 
+import com.puppydemon.MoreWithersMod.item.EnhancedWitherShardT1;
+import com.puppydemon.MoreWithersMod.item.EnhancedWitherShardT2;
+import com.puppydemon.MoreWithersMod.item.EnhancedWitherShardT3;
 import com.puppydemon.MoreWithersMod.item.ItemArmorT1;
 import com.puppydemon.MoreWithersMod.item.ItemArmorT2;
 import com.puppydemon.MoreWithersMod.item.ItemArmorT3;
@@ -24,6 +27,9 @@ public class ModItems
 	public static ArmorMaterial WITHERARMOR = EnumHelper.addArmorMaterial("WITHERARMOR", -1, new int[]{3,7,5,2}, 0);
 	//Items
 	public static final ItemMWM WitherShard = new ItemWitherShard();
+	public static final ItemMWM WitherShardT1 = new EnhancedWitherShardT1();
+	public static final ItemMWM WitherShardT2 = new EnhancedWitherShardT2();
+	public static final ItemMWM WitherShardT3 = new EnhancedWitherShardT3();
 	//Three Tiers of Swords
 	public static final ItemMWMSword ItemSwordT1 = new ItemSwordT1(WITHERT1);
 	public static final ItemMWMSword ItemSwordT2 = new ItemSwordT2(WITHERT2);
@@ -48,6 +54,9 @@ public class ModItems
 	{
 		//Items
 		GameRegistry.registerItem(WitherShard, "WitherShard");
+		GameRegistry.registerItem(WitherShardT1, "EnhancedWitherShardT1");
+		GameRegistry.registerItem(WitherShardT2, "EnhancedWitherShardT2");
+		GameRegistry.registerItem(WitherShardT3, "EnhancedWitherShardT3");
 		//Tier One Armor
 		GameRegistry.registerItem(ItemHelmetT1, "WitherHelmetT1");
 		GameRegistry.registerItem(ItemChestplateT1, "WitherChestplateT1");
