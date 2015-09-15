@@ -15,11 +15,10 @@ public class SlotMWM extends Slot
 	@Override
 	public boolean isItemValid(ItemStack itemstack)
 	{
-		if (itemstack == ModItems.ItemSwordT1)
-		{
-			return itemstack == ModItems.ItemSwordT1;
-	
-		}
+		if (!(itemstack == ModItems.ItemSwordT1))
+			return false;
+		else
+			return true;	
 	}
 		   @Override
 		   public int getSlotStackLimit() {
