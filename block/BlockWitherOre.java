@@ -7,6 +7,8 @@ import com.puppydemon.MoreWithersMod.reference.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockWitherOre extends BlockMWM
 {
@@ -14,6 +16,7 @@ public class BlockWitherOre extends BlockMWM
 	private int meta;
 	private int least_quantity;
 	private int most_quantity;
+	private Random rand = new Random();
 	
 	public BlockWitherOre(String unlocalizedName, Material mat, Item drop, int meta, int least_quantity, int most_quantity)
 	{
@@ -55,6 +58,12 @@ public class BlockWitherOre extends BlockMWM
 	        return this.least_quantity;
 	    return this.least_quantity + random.nextInt(this.most_quantity - this.least_quantity + fortune + 1);
 	}
+    @Override
+    public int getExpDrop(IBlockAccess world, int meta, int fortune)
+    {
+    	return MathHelper.getRandomIntegerInRange(rand, 10, 20);
+    }
+     
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
