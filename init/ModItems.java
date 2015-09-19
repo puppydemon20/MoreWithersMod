@@ -12,6 +12,7 @@ import com.puppydemon.MoreWithersMod.item.ItemSwordT1;
 import com.puppydemon.MoreWithersMod.item.ItemSwordT2;
 import com.puppydemon.MoreWithersMod.item.ItemSwordT3;
 import com.puppydemon.MoreWithersMod.item.ItemWitherShard;
+import com.puppydemon.MoreWithersMod.augments.AugmentTest;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item.ToolMaterial;
@@ -49,6 +50,8 @@ public class ModItems
 	public static final ItemArmorT3 ItemChestplateT3 = new ItemArmorT3("WitherChestplateT3", WITHERARMOR,"WitherChestplateT3", 1);
 	public static final ItemArmorT3 ItemLeggingsT3 = new ItemArmorT3("WitherLeggingsT3", WITHERARMOR,"WitherLeggingsT3", 2);
 	public static final ItemArmorT3 ItemBootsT3 = new ItemArmorT3("WitherBootsT3", WITHERARMOR,"WitherBootsT3", 3);
+	//Augments
+	public static final AugmentTest AugmentTest = new AugmentTest();
 	
 	public static void init ()
 	{
@@ -76,6 +79,8 @@ public class ModItems
 		GameRegistry.registerItem(ItemSwordT1, "WitherSwordT1");
 		GameRegistry.registerItem(ItemSwordT2, "WitherSwordT2");
 		GameRegistry.registerItem(ItemSwordT3, "WitherSwordT3");
+		//Augments
+		GameRegistry.registerItem(AugmentTest, "AugmentTest");
 	}
 	
 

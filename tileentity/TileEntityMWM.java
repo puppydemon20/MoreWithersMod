@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
 
-public class TileEntityMWM extends TileEntity implements IInventory, IUpdatePlayerListBox
+public class TileEntityMWM extends TileEntity implements IInventory
 {
     private ItemStack[] inventory;
     private String customName;
@@ -182,9 +182,5 @@ public class TileEntityMWM extends TileEntity implements IInventory, IUpdatePlay
         {
             this.orientation = ForgeDirection.getOrientation(nbt.getByte("teDirection"));
         }
-	}
-	@Override
-	public void update()
-	{
 	}
 }

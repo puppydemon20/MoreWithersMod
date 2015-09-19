@@ -1,28 +1,38 @@
 package com.puppydemon.MoreWithersMod.guicontainer;
 
+import com.puppydemon.MoreWithersMod.augments.AugmentHelper;
+import com.puppydemon.MoreWithersMod.inventory.SlotAugment;
+import com.puppydemon.MoreWithersMod.inventory.SlotAugment1;
+import com.puppydemon.MoreWithersMod.inventory.SlotAugment2;
 import com.puppydemon.MoreWithersMod.inventory.SlotMWM;
+import com.puppydemon.MoreWithersMod.reference.AugmentReference;
 import com.puppydemon.MoreWithersMod.tileentity.TileEntityMWM;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class ContainerTileEntityMWM extends Container
 {
     private TileEntityMWM te;
+    public static ItemStack itemstack1;
+    public static ItemStack itemstack2;
+    public static ItemStack itemstack3;
+    public static Slot MWMSlot1;
+    public static Slot MWMSlot2;
+    public static Slot MWMSlot3;
 
     public ContainerTileEntityMWM(IInventory playerInv, TileEntityMWM te)
     {
     	this.te = te;
-        
-    	this.addSlotToContainer(new SlotMWM(te, 0, 54, 35));
     	// Tile Entity, Slot 0-3, Slot IDs 0-3
-        for (int x = 1; x < 4; ++x)
-        {
-            this.addSlotToContainer(new Slot(te, x, 54 + x * 18, 17 + 1 * 18));
-        }
+    	this.addSlotToContainer(new SlotMWM(te, 0, 54, 35));
+    	this.addSlotToContainer(new SlotAugment(te, 1, 72, 35));
+    	this.addSlotToContainer(new SlotAugment1(te, 2, 90, 35));
+    	this.addSlotToContainer(new SlotAugment2(te, 3, 108, 35));
 
         // Player Inventory, Slot 4-30, Slot IDs 4-30
         for (int y = 0; y < 3; ++y)
@@ -46,9 +56,12 @@ public class ContainerTileEntityMWM extends Container
          * Player Inventory 9-35 .. 3  - 30
          * Player Inventory 0-8 ... 31 - 39
          */
+    	this.MWMSlot1 = (Slot) this.inventorySlots.get(1);
+    	this.MWMSlot2 = (Slot) this.inventorySlots.get(2);
+    	this.MWMSlot3 = (Slot) this.inventorySlots.get(3);
     }
 
-    @Override
+	@Override
     public boolean canInteractWith(EntityPlayer playerIn)
     {
         return this.te.isUseableByPlayer(playerIn);
@@ -93,5 +106,46 @@ public class ContainerTileEntityMWM extends Container
 
         }
         return previous;
+    }
+    public static Boolean checkSword()
+    {
+    	if (SlotMWM.SwordPlaced == 0)
+    		return false;
+    	return true;
+    }
+    public static void removeAugments ()
+    {
+    	Slot slot1 = MWMSlot1;
+    	Slot slot2 = MWMSlot2;
+    	Slot slot3 = MWMSlot3;
+		ItemStack itemstack1 = slot1.getStack();
+		ItemStack itemstack2 = slot2.getStack();
+		ItemStack itemstack3 = slot3.getStack();
+		for (int i = 1; i <= SlotMWM.AugmentCap;)
+		{
+    		if (!(slot1 == null))
+    			itemstack1 = null;
+			if (!(slot2 == null))
+				itemstack2 = null;
+			if (!(slot3 == null))
+				itemstack3 = null;
+		}
+    }
+    public static void getEquppedAugments (ItemStack itemstack)
+    {
+    	for (int i = 1; i < SlotMWM.AugmentCap;)
+    	{
+    		ItemStack Slot1 = MWMSlot1.getStack();
+    		ItemStack Slot2 = MWMSlot2.getStack();
+    		ItemStack Slot3 = MWMSlot3.getStack();
+    		ItemStack itemstackNew = new ItemStack(AugmentReference.getAugmentName(AugmentHelper.checkEquippedAugments(itemstack, i)));
+    		if (i == 1)
+    			Slot1 = itemstackNew;
+    		if (i == 2)
+    			Slot2 = itemstackNew;
+    		if (i == 3)
+    			Slot3 = itemstackNew;
+    		
+    	}
     }
 }
