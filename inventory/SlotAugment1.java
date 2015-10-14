@@ -24,7 +24,7 @@ public class SlotAugment1 extends Slot
 	 @Override
 	 public boolean isItemValid(ItemStack itemstack)
 	 {
-		return AugmentHelper.checkAugment(itemstack,2);
+		return AugmentHelper.checkAugment(itemstack, 2);
 	 }
 	 @Override
 	 public void onPickupFromSlot(EntityPlayer player, ItemStack itemstack)

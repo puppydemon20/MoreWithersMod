@@ -24,7 +24,7 @@ public class SlotMWM extends Slot
 	public boolean isItemValid(ItemStack itemstack)
 	{
 		this.SwordPlaced = 1;
-		if (itemstack.getItem() == ModItems.ItemSwordT1) {this.AugmentCap = 1; placeAugments(); ContainerTileEntityMWM.getEquppedAugments(itemstack);return true;}
+		if (itemstack.getItem() == ModItems.ItemSwordT1) {this.AugmentCap = 1; ContainerTileEntityMWM.getEquppedAugments(itemstack);return true;}
 		else if (itemstack.getItem() == ModItems.ItemSwordT2) {this.AugmentCap = 2; return true;}
 		else if (itemstack.getItem() == ModItems.ItemSwordT3) {this.AugmentCap = 3; return true;}
 		else if (itemstack.getItem() == ModItems.ItemHelmetT1) {this.AugmentCap = 0; return true;}
@@ -44,17 +44,18 @@ public class SlotMWM extends Slot
 	@Override
 	public void onPickupFromSlot(EntityPlayer player, ItemStack itemStack)
 	{
-
-		ContainerTileEntityMWM.removeAugments();
+    		if (!(SlotAugment.itemStack == null))
+    			SlotAugment.itemStack.stackSize = 0;
+    		if (this.AugmentCap > 1 && !(SlotAugment1.itemStack == null))
+    			SlotAugment1.itemStack.stackSize = 0;
+    		if (this.AugmentCap > 2 && !(SlotAugment2.itemStack == null))
+    			SlotAugment2.itemStack.stackSize = 0;
+    	
 		this.onSlotChanged();
 	}
 	@Override
 	public int getSlotStackLimit()
 	{
-		
 		return 1;
 	}
-    public void placeAugments()
-    {
-    }
 }

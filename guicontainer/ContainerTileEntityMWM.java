@@ -14,13 +14,11 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 
 public class ContainerTileEntityMWM extends Container
 {
     private TileEntityMWM te;
-    public static ItemStack itemstack1;
-    public static ItemStack itemstack2;
-    public static ItemStack itemstack3;
     public static Slot MWMSlot1;
     public static Slot MWMSlot2;
     public static Slot MWMSlot3;
@@ -56,9 +54,6 @@ public class ContainerTileEntityMWM extends Container
          * Player Inventory 9-35 .. 3  - 30
          * Player Inventory 0-8 ... 31 - 39
          */
-    	this.MWMSlot1 = (Slot) this.inventorySlots.get(1);
-    	this.MWMSlot2 = (Slot) this.inventorySlots.get(2);
-    	this.MWMSlot3 = (Slot) this.inventorySlots.get(3);
     }
 
 	@Override
@@ -113,39 +108,41 @@ public class ContainerTileEntityMWM extends Container
     		return false;
     	return true;
     }
-    public static void removeAugments ()
+    public void removeAugments (int slotNumber)
     {
-    	Slot slot1 = MWMSlot1;
-    	Slot slot2 = MWMSlot2;
-    	Slot slot3 = MWMSlot3;
-		ItemStack itemstack1 = slot1.getStack();
-		ItemStack itemstack2 = slot2.getStack();
-		ItemStack itemstack3 = slot3.getStack();
-		for (int i = 1; i <= SlotMWM.AugmentCap;)
-		{
-    		if (!(slot1 == null))
-    			itemstack1 = null;
-			if (!(slot2 == null))
-				itemstack2 = null;
-			if (!(slot3 == null))
-				itemstack3 = null;
-		}
+    	Slot slot = (Slot) this.inventorySlots.get(slotNumber);
+    	ItemStack itemstack = slot.getStack();
+    	if (!(this.inventorySlots.get(slotNumber) == null))
+    		itemstack = null;
     }
     public static void getEquppedAugments (ItemStack itemstack)
     {
-    	for (int i = 1; i < SlotMWM.AugmentCap;)
+    	for (int i = 1; i < SlotMWM.AugmentCap; i++)
     	{
-    		ItemStack Slot1 = MWMSlot1.getStack();
-    		ItemStack Slot2 = MWMSlot2.getStack();
-    		ItemStack Slot3 = MWMSlot3.getStack();
+    		ItemStack slot1 = MWMSlot1.getStack();
+    		ItemStack slot2 = MWMSlot2.getStack();
+    		ItemStack slot3 = MWMSlot3.getStack();
     		ItemStack itemstackNew = new ItemStack(AugmentReference.getAugmentName(AugmentHelper.checkEquippedAugments(itemstack, i)));
     		if (i == 1)
-    			Slot1 = itemstackNew;
+    			SlotAugment.itemStack = slot1;
     		if (i == 2)
-    			Slot2 = itemstackNew;
+    			SlotAugment1.itemStack = slot2;
     		if (i == 3)
-    			Slot3 = itemstackNew;
+    			SlotAugment2.itemStack = slot3;
     		
+    	}
+    }
+    //Testing Code
+    public void Method(int ID)
+    {
+    	for (int i = 1; i < 4; i++)
+    	{
+    		if (i == 1)
+    			this.inventoryItemStacks.set(i, new ItemStack(AugmentReference.getAugmentName(ID)));
+    		if (i == 2)
+    			this.inventoryItemStacks.set(i,  new ItemStack(AugmentReference.getAugmentName(ID)));
+    		if (i == 3)
+    			this.inventorySlots.set(i,  new ItemStack(AugmentReference.getAugmentName(ID)));
     	}
     }
 }

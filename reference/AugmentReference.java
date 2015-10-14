@@ -14,6 +14,7 @@ public class AugmentReference
 	
 	public static final int STRENGTH = Potion.damageBoost.id;
 	
+	// Returns the Id of the Augment ItemStack in given slot.
 	public static int id (int slot)
 	{
 	if (slot == 1)
@@ -25,12 +26,15 @@ public class AugmentReference
 	return 0;
 	}
 
+	// Returns the Id of the Augment when given an ItemStack
 	private static int getAugmentID(ItemStack itemStack)
 	{
 		if (itemStack.getItem() == ModItems.AugmentTest)
 			return 1;
 		return 0;
 	}
+	
+	// Returns the Name of the Augment when given an ID
 	public static Item getAugmentName (int ID)
 	{
 		if (ID == 1)

@@ -26,6 +26,7 @@ public class AugmentHelper {
 	{
 		
 	}
+	// Checks to see if the item is an Augment
 	public static boolean checkAugment (ItemStack itemstack, int slot)
 	{
 		if (ContainerTileEntityMWM.checkSword() == true)
@@ -38,12 +39,14 @@ public class AugmentHelper {
 		}
 		return false;
 	}
+	//This sets the itemStacks for each slot to a constant.
 	public static void checkSlot (ItemStack itemstack, int slot)
 	{
 		if (slot == 1) {SlotAugment.itemStack = itemstack;}
 		if (slot == 2) {SlotAugment1.itemStack = itemstack;}
 		if (slot == 3) {SlotAugment2.itemStack = itemstack;}
 	}
+	// Returns the Augment ID from the specified augment slot.
 	public static int checkEquippedAugments (ItemStack itemstack, int id)
 	{
 		return itemstack.stackTagCompound.getInteger("Augment_" + id);
